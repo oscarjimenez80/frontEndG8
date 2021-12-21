@@ -1,0 +1,51 @@
+@media all and (min-width: 480px) {
+    body {
+      
+      font-family: arial;
+      background-color: #D6DBDF;
+    }
+   
+      .Home {
+        height: 100%;
+        width: 100%;
+   
+        
+      }
+  
+      
+      .Content {
+        float: right;
+        width: 80%;
+        margin-right: 5%;
+     
+  
+   
+       }
+       .ContentEdit {
+        float: right;
+        width: 20%;
+        margin-right: 35%;
+        margin-top: 5%;
+  
+     
+  
+   
+       }
+  
+       #BtnAddProd{
+  
+          margin-top: 10px;
+          margin-bottom: 10px;
+          float: right;
+  
+       }
+       #btnGuardar{
+        float: right;
+     }
+  
+    .titleProds{
+      float: center;
+   }
+     
+   
+  }
