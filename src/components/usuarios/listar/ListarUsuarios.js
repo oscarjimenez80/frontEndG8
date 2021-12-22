@@ -37,10 +37,10 @@ const ListarUsuarios = () => {
                                     <td>{usuario.nombre} </td>
                                     <td>{usuario.email}</td>
                                     <td>
-                                        <NavLink className="btn btn-secondary mr" to={`/usuarios/${usuario.id}`}>
+                                        <NavLink className="btn btn-success mr" to={`/usuarios/${usuario.id}`}>
                                             Editar
                                         </NavLink>{' '}
-                                        <button type="button" className="btn btn btn-danger mr-3" data="data de pruebas" onClick={() => handleDelete(usuario.id)}>Eliminar</button>
+                                        {/*<button type="button" className="btn btn btn-danger mr-3" data="data de pruebas" onClick={() => handleDelete(usuario.id)}>Eliminar</button>*/}
                                     </td>
                                 </tr>
                             ))

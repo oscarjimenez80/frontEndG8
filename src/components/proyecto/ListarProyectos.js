@@ -8,10 +8,10 @@ const ListarProyectos = () => {
     const { loading, data, error } = useQuery(GET_PROYECTOS);
 
     const handleDelete = (id) => {
-        console.log('=pROYECTO',data);
+        console.log('=pROYECTO', data);
     }
 
-    
+
     return (
         <div class="Content">
             <section className="content mt-5">
@@ -32,6 +32,7 @@ const ListarProyectos = () => {
                                                     <th scope="col">Nombre</th>
                                                     <th scope="col">Objetivo General</th>
                                                     <th scope="col">Objetivo Especifico</th>
+                                                    <th scope="col">Presupuesto</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -42,7 +43,7 @@ const ListarProyectos = () => {
                                                             <td>{proyecto.nombre} </td>
                                                             <td>{proyecto.objetivosG}</td>
                                                             <td>{proyecto.objetivosE}</td>
-                                                            <td>{proyecto.presupuesto}</td>
+                                                            <td>${proyecto.presupuesto}</td>
                                                             <td>
                                                             </td>
                                                         </tr>

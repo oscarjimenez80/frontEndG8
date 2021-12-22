@@ -8,9 +8,7 @@ import SET_USUARIO from '../../../Apollo/gql/setUsuario';
 const CrearUsuario = () => {
 
     const navigate = useNavigate();
-
     const { register, handleSubmit } = useForm();
-
     const [crearUsuario, { data, loading, error }] = useMutation(SET_USUARIO, {
         refetchQueries: [{
             query: GET_USUARIOS

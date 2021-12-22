@@ -8,22 +8,16 @@ import useAuth from '../../hooks/useAuth';
 import { NavLink } from 'react-router-dom'
 
 const LoginPage = () => {
-
     const auth = useAuth();
-
     const { register, handleSubmit, formState: { errors } } = useForm();
-
     const navigate = useNavigate();
-
     const [loginUsuario, { data, loading, error }] = useLazyQuery(LOGIN_USUARIO);
 
     useEffect(() => {
         if (data) {
             console.log('dataR', data);
-
             auth.setToken(data.login.token);
             auth.setUser({ usuario: data.login.usuario, rol: data.login.rol });
-
             if (data.login.token != null) {
                 navigate('/usuarios', {
                     replace: true
@@ -33,30 +27,20 @@ const LoginPage = () => {
                 navigate('/login', {
                     replace: false
                 })
-
-
             }
-
-
         }
     }, [data, navigate, auth]);
 
 
-
     const handleLogin = (args) => {
-
         const { email, password } = args;
         loginUsuario({ variables: { email, password } });
-
     }
 
     return (
         <div>
             <br /><br />
-
             <div class="login-form">
-
-
                 <h2>Gestor de Proyectos Grupo 8</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-group">
@@ -68,16 +52,12 @@ const LoginPage = () => {
                             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
                         />
                     </div>
-
                     {errors.email?.type === "required" && <div className="alert alert-danger mt-2" role="alert">
                         el correo es obligatorio
                     </div>}
-
                     {errors.email?.type === "pattern" && <div className="alert alert-danger mt-2" role="alert">
                         el correo no tiene el formto correcto
                     </div>}
-
-
                     <div className="form-group mt-2">
                         <input
                             type="password"
@@ -87,11 +67,9 @@ const LoginPage = () => {
                             {...register("password", { required: true })}
                         />
                     </div>
-
                     {errors.password && <div className="alert alert-danger mt-2" role="alert">
                         el password es obligatorio
                     </div>}
-
                     <div className="form-group mt-3">
                         {!loading && <input
                             type="submit"
@@ -105,23 +83,16 @@ const LoginPage = () => {
                         </button>}
                     </div>
                 </form>
-
                 <div class="seperator"><b>or</b></div>
-
                 {
                     <NavLink className="register-btn" type="button" to={`/usuarios/crear`}>
-                    Registrar
+                        Registrar
                     </NavLink>
-                        
+
                 }
-               
-
-
                 {error && <div className="alert alert-danger" role="alert">
                     Usuario o contraseña incorrectos
-                </div>}
-
-
+               </div>}
             </div>
         </div>
     )
